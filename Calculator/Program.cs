@@ -1,39 +1,8 @@
 ﻿using System;
+using CalculatorLibrary;
 
-namespace Calculator
+namespace CalculatorProgramm
 {
-   class Calculotor
-    {
-        public static double DoOperation (double num1, double num2, string op)
-        {
-            double result = double.NaN;
-
-            switch (op) 
-            {
-                case "+":
-                    result = num1 + num2;
-                    break;
-                case "-":
-                    result = num1 - num2;
-                    break;
-                case "*":
-                    result = num1 * num2;
-                    break;
-                case "/":
-                    // Ask the user to enter a non-zero divisor
-                    if (num2 != 0) 
-                    {
-                        result = num1 / num2;
-                    }
-                    break;
-                //Return text for an incorrect option entry.
-                default:
-                    break;
-            }
-            return result;
-        }
-    }
-
     class Program
     {
         static void Main(string[] args)
@@ -73,7 +42,7 @@ namespace Calculator
                 }
 
                 // Далее выбираем арифметическую опцию
-                Console.WriteLine("Выбери вариант для выполнения действия:");
+                Console.WriteLine("Choose an operator from the following list::");
                 Console.WriteLine("\t+ - Add");
                 Console.WriteLine("\t- - Subtract");
                 Console.WriteLine("\t* - Multiply");
@@ -84,7 +53,7 @@ namespace Calculator
 
                 try
                 {
-                    result = Calculotor.DoOperation(cleanNum1, cleanNum2, op);
+                    result = Calculator.DoOperation(cleanNum1, cleanNum2, op);
                     if (double.IsNaN(result))
                     {
                         Console.WriteLine("This operation will result in a math error. \n");
